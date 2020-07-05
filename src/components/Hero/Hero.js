@@ -40,6 +40,7 @@ function Hero() {
 			setFilteredNorris(categories.value)
 		})
 		.catch(err => console.log(err))
+		/* eslint-disable */
 	}, [])
 
 	const changeTab=(event,value)=>{
@@ -102,7 +103,7 @@ function Hero() {
 		}
 		return false
 	}
-	function Chakri(){
+	const Loader = () => {
 		return (
 			<div style={{textAlign:'center',padding:'2rem'}}>
 				<CircularProgress/>
@@ -156,7 +157,7 @@ function Hero() {
           {
           return <NorrisCard style={{marginTop: '10vh'}} joke={joke} key={joke.id} like={like} unLike={unLike} index={index}/>
           }})}
-          {loading&&<Chakri/>}
+          {loading&&<Loader/>}
         </div>
         <div role='tabpanel' hidden={currentTab!==1} style={{marginTop: '10vh'}}>
           {liked.map((joke,index)=>(
